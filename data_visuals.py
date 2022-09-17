@@ -74,7 +74,7 @@ with hcol2:
     # Read data
     if "ds" in st.session_state:
         st.header("Data and Chart overview")  # Give it a header
-        df= st.session_state["ds1"]
+        df= st.session_state["ds"]
         file_ext = df.name.split('.')[-1]  # get file extension of selected file
 
         if file_ext == 'csv':
