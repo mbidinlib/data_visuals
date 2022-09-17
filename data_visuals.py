@@ -56,7 +56,7 @@ st.markdown("""<b><h3><font color = 'maroon'>MGlory Data Visualization</font></h
     This tool will help you visualize your data in charts, maps and other
     """,unsafe_allow_html=True)
 
-hcol1, hcol2,hcol3 = st.columns((1,0.4,3))
+hcol1, hcol2,hcol3 = st.columns((2,0.4,4))
 
 with hcol1:
     st.markdown("<h4><u>Import Page</u></h4>",unsafe_allow_html=True)
