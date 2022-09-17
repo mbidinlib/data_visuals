@@ -46,7 +46,7 @@ st.markdown(footer,unsafe_allow_html=True)
 # Define the sidebar
 st.sidebar.markdown("#Options")
 with st.sidebar.container():
-   sbcol1, sbcol2, = st.columns(2)
+   sbcol1, sbcol2, = st.columns((1,3))
 
    sbcol1.image('picture.jpg',
         caption='Mathew Bidinlib', width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
