@@ -51,7 +51,7 @@ with st.sidebar.container():
    sbcol1.image('picture.jpg',
         caption='Mathew Bidinlib', width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
 
-st.markdown("# MGlory Data Visualization")
+st.markdown("<h3><font color = 'maroon'>MGlory Data Visualization</font></h3>",unsafe_allow_html=True)
 
 st.markdown("""
     Welcome to MGlory Data Visualization toolkit.
