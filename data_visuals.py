@@ -54,14 +54,13 @@ st.sidebar.markdown("#Options")
 with st.sidebar.container():
     st.image('picture.jpg',
          width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-    st.markdown('<a href="https://www.github.com/mbidinlib/" target="_blank">Mathew Bidinlib </a>"',unsafe_allow_html=True)
+    
+    st.markdown('<a href="https://www.github.com/mbidinlib/" target="_blank">Mathew Bidinlib </a>',unsafe_allow_html=True)
 
 hcol1, hcol2,hcol3 = st.columns((2,0.4,4))
 
 with hcol1:
-    st.markdown("<h4><u>Import Page</u></h4>",unsafe_allow_html=True)
-    exp1 = st.expander("Help note",expanded=False)
-    st.subheader("Select file")
+    st.markdown("<h5><u>Select Data</u></h5>",unsafe_allow_html=True)
     ds = st.file_uploader("Select Data file", type=["csv", 'xlsx'], key = "data1")
     if ds:
         st.session_state["ds"] = ds
