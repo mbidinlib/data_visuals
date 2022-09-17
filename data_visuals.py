@@ -46,7 +46,7 @@ st.markdown(footer,unsafe_allow_html=True)
 # Define the sidebar
 st.sidebar.markdown("#Options")
 with st.sidebar.container():
-   sbcol1, sbcol2, = st.columns((1,3))
+   sbcol1, sbcol2, = st.columns(2)
 
    sbcol1.image('picture.jpg',
         caption='Mathew Bidinlib', width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
@@ -56,7 +56,7 @@ st.markdown("""<b><h3><font color = 'maroon'>MGlory Data Visualization</font></h
     This tool will help you visualize your data in charts, maps and other
     """,unsafe_allow_html=True)
 
-hcol1, hcol2 = st.columns(2)
+hcol1, hcol2 = st.columns((1,3))
 
 with hcol1:
     st.markdown("<h4><u>Import Page</u></h4>",unsafe_allow_html=True)
