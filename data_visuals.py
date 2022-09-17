@@ -67,6 +67,19 @@ with hcol1:
     st.markdown("")
     st.markdown("")
 
+
+
+with hcol1:
+    st.markdown("<h4><u>Outliers Page</u></h4>",unsafe_allow_html=True)
+    exp3 = st.expander("Help note",expanded=False)
+    exp3.write('''
+    This page is would help you check for outliers in your importd dataset
+    ''')
+
+
+
+
+with hcol2:
     # Read data
     if "ds1" in st.session_state:
         st.header("Data and Chart overview")  # Give it a header
@@ -87,25 +100,6 @@ with hcol1:
             st.markdown("""**This file is type is currently not accepted. Upload a file with a .csv or xls extenssion. 
             #Support for Other file extensions would be added later**""")
 
-
-
-with hcol1:
-    st.markdown("<h4><u>Outliers Page</u></h4>",unsafe_allow_html=True)
-    exp3 = st.expander("Help note",expanded=False)
-    exp3.write('''
-    This page is would help you check for outliers in your importd dataset
-    ''')
-
-
-
-
-with hcol2:
-    st.markdown("<h4><u>Duplicates Page</u></h4>",unsafe_allow_html=True)
-    exp2 = st.expander("Help note",expanded=False)
-    exp2.write('''
-    This page would help you check for duplicates in the imported datasets using some key variables. 
-    You would also be able to download duplicate reports and remove duplicates.
-    ''')
 
 
 
