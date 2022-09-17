@@ -67,17 +67,6 @@ with hcol1:
     st.markdown("")
 
 
-
-with hcol1:
-    st.markdown("<h4><u>Outliers Page</u></h4>",unsafe_allow_html=True)
-    exp3 = st.expander("Help note",expanded=False)
-    exp3.write('''
-    This page is would help you check for outliers in your importd dataset
-    ''')
-
-
-
-
 with hcol2:
     # Read data
     if "ds1" in st.session_state:
