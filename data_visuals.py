@@ -51,11 +51,10 @@ with st.sidebar.container():
    sbcol1.image('picture.jpg',
         caption='Mathew Bidinlib', width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
 
-st.markdown("<b><h3><font color = 'maroon'>MGlory Data Visualization</font></h3></b>",unsafe_allow_html=True)
-
-st.markdown("""
+st.markdown("""<b><h3><font color = 'maroon'>MGlory Data Visualization</font></h3></b>
     Welcome to MGlory Data Visualization toolkit.
-    This tool will help you visualize your data in charts, maps and others""")
+    This tool will help you visualize your data in charts, maps and other
+    """,unsafe_allow_html=True)
 
 hcol1, hcol2 = st.columns(2)
 
