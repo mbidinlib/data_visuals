@@ -63,6 +63,9 @@ with hcol1:
     exp1 = st.expander("Help note",expanded=False)
     st.subheader("Select file")
     ds = st.file_uploader("Select Data file", type=["csv", 'xlsx'], key = "data1")
+    if ds:
+        st.session_state["ds"] = ds
+
     st.markdown("")
     st.markdown("")
 
