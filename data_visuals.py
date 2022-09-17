@@ -69,7 +69,7 @@ with hcol1:
 
 with hcol2:
     # Read data
-    if "ds1" in st.session_state:
+    if "ds" in st.session_state:
         st.header("Data and Chart overview")  # Give it a header
         df= st.session_state["ds1"]
         file_ext = df.name.split('.')[-1]  # get file extension of selected file
@@ -80,7 +80,7 @@ with hcol2:
             #st.dataframe(pd.read_csv(StringIO(df1),dtype='unicode')) ### Remove  
             st.session_state["dataset1"] = dataset_1                         
         elif file_ext == 'xls'or file_ext == 'xlsx':
-            dataset_1 = pd.read_excel(df1, engine='openpyxl').astype(str)
+            dataset_1 = pd.read_excel(df, engine='openpyxl').astype(str)
             st.dataframe(dataset_1)
             st.session_state["dataset1"] = dataset_1
             #st.dataframe(pd.read_excel(df1))
