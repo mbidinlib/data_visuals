@@ -49,15 +49,12 @@ st.markdown("""<center><b><h3><font color = 'maroon'>MGlory Data Visualization</
 
 with st.sidebar:
 # Define the sidebar
-    st.markdown("""Welcome to MGlory Data Visualization toolkit. 
-    This tool will help you visualize your data in charts, maps and others""")
-    st.markdown("")
+    st.markdown("""<b>Welcome to <a href="https://www.github.com/mbidinlib/" target="_blank">MGlory </a> Data Visualization toolkit. 
+    This tool will help you visualize your data in charts, maps and others</b>""",unsafe_allow_html=True)
     st.markdown("")
 
-    st.markdown("# Options")
-    display = st.radio(
-    "Display",
-    ('Dataset', 'Chart'))
+    st.markdown("# Display Mode")
+    display = st.radio("",('Dataset', 'Chart'))
     st.image('picture.jpg',
         width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
 
