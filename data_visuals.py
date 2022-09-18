@@ -62,8 +62,8 @@ with st.sidebar:
 hcol1, hcol2,hcol3 = st.columns((2,0.4,4))
 
 with hcol1:
+    st.markdown("<h5><u>Data Selection</u></h5>",unsafe_allow_html=True)
     with  st.expander("",expanded=True):
-        st.markdown("<h5><u>Data Selection</u></h5>",unsafe_allow_html=True)
         ds = st.file_uploader("Select Data file", type=["csv", 'xlsx'], key = "data1")
         if ds:
             st.session_state["ds"] = ds
