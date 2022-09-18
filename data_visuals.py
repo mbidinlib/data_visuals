@@ -44,7 +44,7 @@ st.markdown(footer,unsafe_allow_html=True)
 #Header
 st.markdown("""<center><b><h3><font color = 'maroon'>MGlory Data Visualization</font></h3></b>
     Welcome to MGlory Data Visualization toolkit.
-    This tool will help you visualize your data in charts, maps and other</center>
+    This tool will help you visualize your data in charts, maps and others</center>
     """,unsafe_allow_html=True)
 
 
@@ -60,6 +60,7 @@ with st.sidebar.container():
 hcol1, hcol2,hcol3 = st.columns((2,0.4,4))
 
 with hcol1:
+    st.markdown("")
     st.markdown("<h5><u>Select Data</u></h5>",unsafe_allow_html=True)
     ds = st.file_uploader("Select Data file", type=["csv", 'xlsx'], key = "data1")
     if ds:
