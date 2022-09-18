@@ -80,7 +80,6 @@ with hcol2:
 with hcol3:
     # Read data
     if "ds" in st.session_state:
-        st.header("Data and Chart overview")  # Give it a header
         df= st.session_state["ds"]
         file_ext = df.name.split('.')[-1]  # get file extension of selected file
 
@@ -96,9 +95,11 @@ with hcol3:
             st.markdown("""**This file is type is currently not accepted. Upload a file with a .csv or xls extenssion. 
             #Support for Other file extensions would be added later**""")
         if display == "Dataset":
+            st.header("Data overview")  # Give it a header
             st.dataframe(dataset_1)
         elif display =="Chart":
-            ""
+            st.header("Chart overview")  # Give it a header
+
 
 
 
