@@ -92,10 +92,10 @@ with hcol3:
             st.markdown("""**This file is type is currently not accepted. Upload a file with a .csv or xls extenssion. 
             #Support for Other file extensions would be added later**""")
         if display == "Dataset":
-            st.header("Data overview")  # Give it a header
+            st.markdown("<h5><u>Data Overview</u></h5>",unsafe_allow_html=True)
             st.dataframe(dataset_1)
         elif display =="Chart":
-            st.header("Chart overview")  # Give it a header
+            st.markdown("<h5><u>Charts</u></h5>",unsafe_allow_html=True)
 
 
 
