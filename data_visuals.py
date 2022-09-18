@@ -42,7 +42,9 @@ st.markdown(footer,unsafe_allow_html=True)
 
 
 #Header
-st.markdown("""<b><h3><font color = 'maroon'>MGlory Data Visualization</font></h3></b>
+st.markdown("""<center><b><h3><font color = 'maroon'>MGlory Data Visualization</font></h3></b></center>
+    Welcome to MGlory Data Visualization toolkit.
+    This tool will help you visualize your data in charts, maps and other
     """,unsafe_allow_html=True)
 
 
