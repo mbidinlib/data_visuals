@@ -57,8 +57,7 @@ with st.sidebar:
     display = st.radio("",('Dataset', 'Chart'))
     st.image('picture.jpg',
         width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-
-st.markdown('<a href="https://www.github.com/mbidinlib/" target="_blank">Mathew Bidinlib </a>',unsafe_allow_html=True)
+    st.markdown('<a href="https://www.github.com/mbidinlib/" target="_blank">Mathew Bidinlib </a>',unsafe_allow_html=True)
 
 hcol1, hcol2,hcol3 = st.columns((2,0.4,4))
 
