@@ -52,6 +52,11 @@ st.markdown("""<center><b><h3><font color = 'maroon'>MGlory Data Visualization</
 # Define the sidebar
 st.sidebar.markdown("# Options")
 with st.sidebar.container():
+    display = st.radio(
+    "Display",
+    ('Dataset', 'Chart'))
+
+
     st.image('picture.jpg',
          width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
     
@@ -61,7 +66,7 @@ hcol1, hcol2,hcol3 = st.columns((2,0.4,4))
 
 with hcol1:
     st.markdown("")
-    st.markdown("<h5><u>Select Data</u></h5>",unsafe_allow_html=True)
+    st.markdown("<h5><u>Data Selection</u></h5>",unsafe_allow_html=True)
     ds = st.file_uploader("Select Data file", type=["csv", 'xlsx'], key = "data1")
     if ds:
         st.session_state["ds"] = ds
@@ -81,17 +86,20 @@ with hcol3:
 
         if file_ext == 'csv':
             dataset_1 = pd.read_csv(df)
-            st.dataframe(dataset_1) 
             #st.dataframe(pd.read_csv(StringIO(df1),dtype='unicode')) ### Remove  
             st.session_state["dataset1"] = dataset_1                         
         elif file_ext == 'xls'or file_ext == 'xlsx':
             dataset_1 = pd.read_excel(df, engine='openpyxl').astype(str)
-            st.dataframe(dataset_1)
             st.session_state["dataset1"] = dataset_1
             #st.dataframe(pd.read_excel(df1))
         else:
             st.markdown("""**This file is type is currently not accepted. Upload a file with a .csv or xls extenssion. 
             #Support for Other file extensions would be added later**""")
+        if display == "Dataset":
+            st.dataframe(dataset_1)
+        elif display =="Chart":
+            ""
+
 
 
 
