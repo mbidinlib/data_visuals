@@ -43,24 +43,25 @@ st.markdown(footer,unsafe_allow_html=True)
 
 #Header
 st.markdown("""<center><b><h3><font color = 'maroon'>MGlory Data Visualization</font></h3></b>
-    Welcome to MGlory Data Visualization toolkit.
-    This tool will help you visualize your data in charts, maps and others</center>
-    """,unsafe_allow_html=True)
+    </center>""",unsafe_allow_html=True)
 
 
 
+with st.sidebar:
 # Define the sidebar
-st.sidebar.markdown("# Options")
-with st.sidebar.container():
+    st.markdown("""Welcome to MGlory Data Visualization toolkit. 
+    This tool will help you visualize your data in charts, maps and others""")
+    st.markdown("")
+    st.markdown("")
+
+    st.markdown("# Options")
     display = st.radio(
     "Display",
     ('Dataset', 'Chart'))
-
-
     st.image('picture.jpg',
-         width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-    
-    st.markdown('<a href="https://www.github.com/mbidinlib/" target="_blank">Mathew Bidinlib </a>',unsafe_allow_html=True)
+        width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+
+st.markdown('<a href="https://www.github.com/mbidinlib/" target="_blank">Mathew Bidinlib </a>',unsafe_allow_html=True)
 
 hcol1, hcol2,hcol3 = st.columns((2,0.4,4))
 
