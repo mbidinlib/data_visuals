@@ -53,7 +53,7 @@ with st.sidebar:
     This tool will help you visualize your data in charts, maps and others</b>""",unsafe_allow_html=True)
     st.markdown("")
 
-    st.markdown("# Display Mode")
+    st.markdown("## Display Mode")
     display = st.radio("",('Dataset', 'Chart'))
     st.image('picture.jpg',
         width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
