@@ -73,6 +73,8 @@ with hcol1:
 
 with hcol2:
     ""
+    
+
 
 with hcol3:
     # Read data
@@ -85,15 +87,15 @@ with hcol3:
             #st.dataframe(pd.read_csv(StringIO(df1),dtype='unicode')) ### Remove  
             st.session_state["dataset1"] = dataset_1                         
         elif file_ext == 'xls'or file_ext == 'xlsx':
-            dataset_1 = pd.read_excel(df, engine='openpyxl').astype(str)
-            st.session_state["dataset1"] = dataset_1
+            dataset = pd.read_excel(df, engine='openpyxl').astype(str)
+            st.session_state["dataset1"] = dataset
             #st.dataframe(pd.read_excel(df1))
         else:
             st.markdown("""**This file is type is currently not accepted. Upload a file with a .csv or xls extenssion. 
             #Support for Other file extensions would be added later**""")
         if display == "Dataset":
             st.markdown("<h5><u>Data Overview</u></h5>",unsafe_allow_html=True)
-            st.dataframe(dataset_1)
+            st.dataframe(dataset)
         elif display =="Chart":
             st.markdown("<h5><u>Charts</u></h5>",unsafe_allow_html=True)
 
