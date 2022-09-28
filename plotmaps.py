@@ -7,6 +7,7 @@ This is a temporary script file.
 
 import folium
 import pandas as pd
+import streamlit as st
 from folium.features import DivIcon
 from branca.element import Figure
 
@@ -19,7 +20,7 @@ title_html = '''
     #ffffff; background-color: #e02b20; padding: 10px 0px;margin:0px">{}</h1>
 '''.format(loc)
 
-data =  idata.dataset 
+data =  st.session_state["dataset"]
 
 #Step 4
 lat = data.lat
