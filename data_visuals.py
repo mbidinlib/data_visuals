@@ -76,7 +76,6 @@ with hcol2:
     ""
     
 
-st.session_state["dataset"] = ""
 with hcol3:
     # Read data
     if "ds" in st.session_state:
