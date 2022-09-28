@@ -6,6 +6,7 @@ Purpose: Data Engineering
 from io import StringIO
 import pandas as pd
 import streamlit as st
+import plotmaps as plotmap
 
 # Set page outline and footer
 st. set_page_config(layout="wide")
@@ -83,12 +84,12 @@ with hcol3:
         file_ext = df.name.split('.')[-1]  # get file extension of selected file
 
         if file_ext == 'csv':
-            dataset_1 = pd.read_csv(df)
+            dataset = pd.read_csv(df)
             #st.dataframe(pd.read_csv(StringIO(df1),dtype='unicode')) ### Remove  
-            st.session_state["dataset1"] = dataset_1                         
+            st.session_state["dataset"] = dataset                         
         elif file_ext == 'xls'or file_ext == 'xlsx':
             dataset = pd.read_excel(df, engine='openpyxl').astype(str)
-            st.session_state["dataset1"] = dataset
+            st.session_state["dataset"] = dataset
             #st.dataframe(pd.read_excel(df1))
         else:
             st.markdown("""**This file is type is currently not accepted. Upload a file with a .csv or xls extenssion. 
@@ -98,7 +99,8 @@ with hcol3:
             st.dataframe(dataset)
         elif display =="Chart":
             st.markdown("<h5><u>Charts</u></h5>",unsafe_allow_html=True)
-
+            st.dataframe(plotmap.data)
+            
 
 
 

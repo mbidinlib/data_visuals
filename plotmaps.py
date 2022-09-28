@@ -10,7 +10,7 @@ import pandas as pd
 from folium.features import DivIcon
 from branca.element import Figure
 
-import importdata as idata
+import data_visuals as idata
 
 # Step 1
 loc = "Plot of Coordinates"
@@ -19,7 +19,7 @@ title_html = '''
     #ffffff; background-color: #e02b20; padding: 10px 0px;margin:0px">{}</h1>
 '''.format(loc)
 
-data =  idata.gpsdata
+data =  idata.dataset 
 
 #Step 4
 lat = data.lat
