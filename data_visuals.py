@@ -129,8 +129,8 @@ with hcol2:
     
     #Scatter plot
     if type == 'Scatter' and xvar !="" and yvar !="":
-        plt.scatter(dataset[xvar], dataset[yvar])
-    
+        scatter= plt.scatter(dataset[xvar], dataset[yvar])
+        st.pyplot(scatter)
     #Geographic Plots
     if type == 'Goespatial' and lonvar !="" and latvar !="":
         loc = "Plot of Coordinates"
