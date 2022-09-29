@@ -96,7 +96,7 @@ with hcol1:
             st.markdown("""**This file is type is currently not accepted. Upload a file with a .csv or xls extenssion. 
             #Support for Other file extensions would be added later**""")
     
-        dataset['']=""
+        dataset.insert(0,"","")
         columns = dataset.columns
         type = st.selectbox(
             'Select visualization type',
@@ -116,7 +116,7 @@ with hcol2:
     ##############
         
     #Geographic Plots
-    if type == 'Goegraphic':
+    if type == 'Goegraphic' and lonvar !="" and latvar !="":
         loc = "Plot of Coordinates"
         title_html = '''
         <h1 style="text-align: center; font-size: 18px; font-weight: bold; color: 
