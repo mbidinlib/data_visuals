@@ -20,7 +20,7 @@ title_html = '''
     #ffffff; background-color: #e02b20; padding: 10px 0px;margin:0px">{}</h1>
 '''.format(loc)
 
-data =  pd.read_csv("C:\Users\STAFF\Documents\GitHub\data")
+data =  pd.read_csv("C:/Users/STAFF/Documents/GitHub/data")
 
 #Step 4
 lat = data.lat
