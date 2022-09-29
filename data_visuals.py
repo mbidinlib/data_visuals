@@ -197,5 +197,6 @@ with hcol2:
                 folium_static(m)
 
 
-
+with hcol1:
+    st.markdown("")
 
