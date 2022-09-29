@@ -96,17 +96,18 @@ with hcol1:
             st.markdown("""**This file is type is currently not accepted. Upload a file with a .csv or xls extenssion. 
             #Support for Other file extensions would be added later**""")
     
+        dataset['']=""
         columns = dataset.columns
         type = st.selectbox(
             'Select visualization type',
-            ('Bar','Goegraphic'), index=-1)
+            ('Bar','Goegraphic'))
         if type == 'Goegraphic':
             lonvar = st.selectbox(
                 'Select Longitude variable',
                 columns, index=-1)    
             latvar = st.selectbox(
                 'Select Latitude variable',
-                columns , index=-1)    
+                columns)    
             name = st.selectbox(
                         'Select Label variable',
                         columns)
