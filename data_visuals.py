@@ -76,16 +76,17 @@ with hcol1:
     st.markdown("")
     st.markdown("")
     if "ds" in st.session_state:
+        columns = ds.columns
         type = st.selectbox(
             'Select visualization type',
             ('Bar','Goegraphic'))
         if type == 'Goegraphic':
             lonvar = st.selectbox(
                 'Select Longitude variable',
-                ds.columns)    
+                columns)    
             latvar = st.selectbox(
                 'Select Latitude variable',
-                ds.columns)    
+                columns)    
     
 
 with hcol2:
