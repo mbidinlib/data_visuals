@@ -130,7 +130,8 @@ with hcol2:
     #Scatter plot
     if type == 'Scatter' and xvar !="" and yvar !="":
         fig, scatter = plt.subplots()
-        scatter= plt.plot(dataset[xvar], dataset[yvar])
+        scolor = st.color_picker('Plot color', '#0A8FBF')
+        scatter= plt.plot(dataset[xvar], dataset[yvar], c= scolor)
         st.pyplot(fig)
     #Geographic Plots
     if type == 'Goespatial' and lonvar !="" and latvar !="":
@@ -223,7 +224,7 @@ with hcol2:
         # Show Charts
         elif display =="Chart":
             #Geographic Plots
-            st.markdown("<h5><u>Geospatial Plot of {longvar} and {latvar}</u></h5>",unsafe_allow_html=True)
+            st.markdown(f"""<h5><u>Geospatial Plot of ${lonvar} and {latvar}</u></h5>""",unsafe_allow_html=True)
             folium_static(m)
 
 
