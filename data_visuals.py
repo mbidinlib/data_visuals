@@ -110,7 +110,8 @@ with hcol1:
                 columns)    
             yvar = st.selectbox(
                 'Select y variable',
-                columns)    
+                columns)
+            scatter = plt.scatter(dataset[xvar], dataset[yvar])    
         
         # Define geospatial inputs
         if type == 'Goespatial':
