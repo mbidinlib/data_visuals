@@ -51,15 +51,13 @@ st.markdown(footer,unsafe_allow_html=True)
 st.markdown("""<center><b><h3><font color = 'maroon'>MGlory Data Visualization</font></h3></b>
     </center>""",unsafe_allow_html=True)
 
-
-
 with st.sidebar:
 # Define the sidebar
     st.markdown("""<b>Welcome to <a href="https://www.github.com/mbidinlib/" target="_blank">MGlory </a> Data Visualization toolkit. 
-    This tool will help you visualize your data in charts, maps and others</b>""",unsafe_allow_html=True)
+    This is the right place to visualize your data</b>""",unsafe_allow_html=True)
     st.markdown("")
     
-    st.markdown("<h5><u>Data Selection</u></h5>",unsafe_allow_html=True)
+    st.markdown("## <u>Data Selection</u>",unsafe_allow_html=True)
     with  st.expander("Click here to import data",expanded=False):
         ds = st.file_uploader("Select Data file", type=["csv", 'xlsx'], key = "data1")
         if ds:
