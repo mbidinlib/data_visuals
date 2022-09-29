@@ -120,8 +120,8 @@ with hcol2:
         '''.format(loc)
 
         data =  dataset
-        lat = latvar
-        lon = lonvar
+        lat = dataset.latvar
+        lon = dataset.lonvar
         name = data.name 
 
         fig2=Figure(width=550,height=350)
