@@ -126,7 +126,7 @@ with hcol2:
         lon = dataset[lonvar]
         name = data[name] 
 
-        fig2=Figure(width=350,height=320)
+        fig2=Figure(width=310,height=310)
         m = folium.Map(location=[(lat.max()+ lat.min())/2,
                                 (lon.max()+ lon.min())/2], zoom_start=5)
         for i in range(0,len(data)):
