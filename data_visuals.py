@@ -70,7 +70,7 @@ with st.sidebar:
         width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
     st.markdown('<a href="https://www.github.com/mbidinlib/" target="_blank">Mathew Bidinlib </a>',unsafe_allow_html=True)
 
-hcol1, hcol2 = st.columns((1,4))
+hcol1, hcol2, hcol3 = st.columns((1,4,0.2))
 if not("ds" in st.session_state):
     st.markdown("Select Dataset at the sidebar")
 with hcol1:
