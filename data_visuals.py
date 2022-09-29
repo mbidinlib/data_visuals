@@ -113,7 +113,7 @@ with hcol1:
                 columns)
             # Add Color picker
             if  xvar !="" and yvar !="":
-                scolor = st.color_picker('Plot color', '#0A8FBF')
+                scolor = st.color_picker('Plot color', '#0A8FBF', key="scolor")
 
         
         # Define geospatial inputs
@@ -134,7 +134,6 @@ with hcol2:
     #Scatter plot
     if type == 'Scatter' and xvar !="" and yvar !="":
         fig, scatter = plt.subplots()
-        scolor = st.color_picker('Plot color', '#0A8FBF')
         scatter= plt.plot(dataset[xvar], dataset[yvar], c= scolor)
         st.pyplot(fig)
     #Geographic Plots
