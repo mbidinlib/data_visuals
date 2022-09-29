@@ -71,7 +71,8 @@ with st.sidebar:
     st.markdown('<a href="https://www.github.com/mbidinlib/" target="_blank">Mathew Bidinlib </a>',unsafe_allow_html=True)
 
 hcol1, hcol2 = st.columns((1,4))
-
+if not("ds" in st.session_state):
+    st.markdown("Select Dataset at the sidebar")
 with hcol1:
     st.markdown("")
     st.markdown("")
