@@ -133,8 +133,8 @@ with hcol2:
                                 (lon.max()+ lon.min())/2], zoom_start=6)
         for i in range(0,len(data)):
             folium.Marker(
-                location=[data.iloc[i]['lat'], data.iloc[i]['lon']],
-                popup=data.iloc[i]['name'],
+                location=[data.iloc[i][lat], data.iloc[i][lon]],
+                popup=data.iloc[i][name],
                 icon=folium.Icon(color = 'black', icon='info-sign')
             ).add_to(m)
 
