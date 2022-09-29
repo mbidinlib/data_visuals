@@ -111,6 +111,10 @@ with hcol1:
             yvar = st.selectbox(
                 'Select y variable',
                 columns)
+        # Add Color picker
+        if  xvar !="" and yvar !="":
+            scolor = st.color_picker('Plot color', '#0A8FBF')
+
         
         # Define geospatial inputs
         if type == 'Goespatial':
