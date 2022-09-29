@@ -111,7 +111,6 @@ with hcol1:
             yvar = st.selectbox(
                 'Select y variable',
                 columns)
-            scatter = plt.scatter(dataset[xvar], dataset[yvar])    
         
         # Define geospatial inputs
         if type == 'Goespatial':
@@ -130,7 +129,7 @@ with hcol2:
     
     #Scatter plot
     if type == 'Scatter' and xvar !="" and yvar !="":
-        scatter= plt.scatter(dataset[xvar], dataset[yvar])
+        scatter= plt.plot(dataset[xvar], dataset[yvar])
         st.pyplot(scatter)
     #Geographic Plots
     if type == 'Goespatial' and lonvar !="" and latvar !="":
@@ -222,13 +221,9 @@ with hcol2:
         
         # Show Charts
         elif display =="Chart":
-            if type == 'Scatter' and xvar !="" and yvar !="":
-                st.markdown("<h5><u>Scatter Plot of {xvar} and {yvar}</u></h5>",unsafe_allow_html=True)
-                #st.pyplot(scatter)
             #Geographic Plots
-            if type == 'Goespatial' and lonvar !="" and latvar !="":
-                st.markdown("<h5><u>Geospatial Plot of {longvar} and {latvar}</u></h5>",unsafe_allow_html=True)
-                folium_static(m)
+            st.markdown("<h5><u>Geospatial Plot of {longvar} and {latvar}</u></h5>",unsafe_allow_html=True)
+            folium_static(m)
 
 
 
