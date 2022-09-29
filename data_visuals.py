@@ -104,7 +104,7 @@ with hcol1:
         if type == 'Goegraphic':
             lonvar = st.selectbox(
                 'Select Longitude variable',
-                columns, index=-1)    
+                columns, index=1)    
             latvar = st.selectbox(
                 'Select Latitude variable',
                 columns)    
