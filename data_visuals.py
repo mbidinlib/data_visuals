@@ -129,7 +129,7 @@ with hcol2:
 
         fig2=Figure(width=310,height=310)
         m = folium.Map(location=[(lat.max()+ lat.min())/2,
-                                (lon.max()+ lon.min())/2], zoom_start=8)
+                                (lon.max()+ lon.min())/2], zoom_start=6)
         for i in range(0,len(data)):
             folium.Marker(
                 location=[data.iloc[i]['lat'], data.iloc[i]['lon']],
