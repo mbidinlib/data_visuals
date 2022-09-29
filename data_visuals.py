@@ -182,6 +182,14 @@ with hcol2:
         # Add custom basemaps
         basemaps['Google Maps'].add_to(m)
         basemaps['Google Satellite Hybrid'].add_to(m)
+        
+         #Add Layers and tiles
+        folium.TileLayer('Stamen Terrain').add_to(m)
+        folium.TileLayer('Stamen Toner').add_to(m)
+        folium.TileLayer('Stamen Water Color').add_to(m)
+        folium.TileLayer('cartodbpositron').add_to(m)
+        folium.TileLayer('cartodbdark_matter').add_to(m)
+        
         #Layers
         fig2.add_child(m)
         folium.LayerControl().add_to(m)
