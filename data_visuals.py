@@ -114,7 +114,7 @@ with hcol2:
     # Define plots
     ##############
         
-    #Maps
+    #Geographic Plots
     if type == 'Goegraphic':
         loc = "Plot of Coordinates"
         title_html = '''
@@ -129,7 +129,7 @@ with hcol2:
 
         fig2=Figure(width=310,height=310)
         m = folium.Map(location=[(lat.max()+ lat.min())/2,
-                                (lon.max()+ lon.min())/2], zoom_start=5)
+                                (lon.max()+ lon.min())/2], zoom_start=8)
         for i in range(0,len(data)):
             folium.Marker(
                 location=[data.iloc[i]['lat'], data.iloc[i]['lon']],
