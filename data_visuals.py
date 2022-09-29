@@ -138,8 +138,8 @@ with hcol2:
     if type == 'Scatter' and xvar !="" and yvar !="":
         fig, scatter = plt.subplots()
         scatter= plt.scatter(dataset[xvar], dataset[yvar], c= scolor)
-        scatter.xlabel("X-axis")
-        scatter.ylabel("Y-axis")
+        fig.xlabel(sxlab)
+        fig.ylabel(zylab)
         st.pyplot(fig)
     
     #Geographic Plots
