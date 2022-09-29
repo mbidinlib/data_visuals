@@ -62,7 +62,7 @@ with st.sidebar:
         ds = st.file_uploader("Select Data file", type=["csv", 'xlsx'], key = "data1")
         if ds:
             st.session_state["ds"] = ds
-
+                # Read data
 
     st.markdown("## Display Mode")
     display = st.radio("",('Dataset', 'Chart'))
@@ -76,7 +76,26 @@ with hcol1:
     st.markdown("")
     st.markdown("")
     if "ds" in st.session_state:
-        columns = ds.columns
+        
+        # Import Data
+        df= st.session_state["ds"]
+        file_ext = df.name.split('.')[-1]  # get file extension of selected file
+
+        # CSV file
+        if file_ext == 'csv':
+            dataset = pd.read_csv(df)
+            #st.dataframe(pd.read_csv(StringIO(df1),dtype='unicode')) ### Remove  
+            st.session_state["dataset"] = dataset 
+        #Excel file
+        elif file_ext == 'xls'or file_ext == 'xlsx':
+            dataset = pd.read_excel(df, engine='openpyxl').astype(str)
+            st.session_state["dataset"] = dataset
+            #st.dataframe(pd.read_excel(df1))
+        else:
+            st.markdown("""**This file is type is currently not accepted. Upload a file with a .csv or xls extenssion. 
+            #Support for Other file extensions would be added later**""")
+    
+        columns = dataset.columns
         type = st.selectbox(
             'Select visualization type',
             ('Bar','Goegraphic'))
@@ -88,31 +107,12 @@ with hcol1:
                 'Select Latitude variable',
                 columns)    
     
-
-with hcol2:
-    # Read data
-    if "ds" in st.session_state:
-        df= st.session_state["ds"]
-        file_ext = df.name.split('.')[-1]  # get file extension of selected file
-
-        if file_ext == 'csv':
-            dataset = pd.read_csv(df)
-            #st.dataframe(pd.read_csv(StringIO(df1),dtype='unicode')) ### Remove  
-            st.session_state["dataset"] = dataset                         
-        elif file_ext == 'xls'or file_ext == 'xlsx':
-            dataset = pd.read_excel(df, engine='openpyxl').astype(str)
-            st.session_state["dataset"] = dataset
-            #st.dataframe(pd.read_excel(df1))
-        else:
-            st.markdown("""**This file is type is currently not accepted. Upload a file with a .csv or xls extenssion. 
-            #Support for Other file extensions would be added later**""")
+with hcol2:          
+    # Define plots
+    ##############
         
-        
-        
-        
-        # Define plots
-        ##############
-        #Maps
+    #Maps
+    if type == 'Goegraphic':
         loc = "Plot of Coordinates"
         title_html = '''
         <h1 style="text-align: center; font-size: 18px; font-weight: bold; color: 
@@ -120,8 +120,8 @@ with hcol2:
         '''.format(loc)
 
         data =  dataset
-        lat = data.lat
-        lon = data.lon
+        lat = latvar
+        lon = lonvar
         name = data.name 
 
         fig2=Figure(width=550,height=350)
@@ -179,22 +179,18 @@ with hcol2:
         fig2.add_child(m)
         folium.LayerControl().add_to(m)
         #Add title
-        m.get_root().html.add_child(folium.Element(title_html))
-
-
-            
-            
-            
-            
+        m.get_root().html.add_child(folium.Element(title_html))            
+    
+        # Trigger display
         if display == "Dataset":
             st.markdown("<h5><u>Data Overview</u></h5>",unsafe_allow_html=True)
             st.dataframe(dataset)
         elif display =="Chart":
-            st.markdown("<h5><u>Charts</u></h5>",unsafe_allow_html=True)
-            folium_static(m)
-
-            
-
+            if latvar == "" or lonvar == "":
+                st.warning('Select required variables', icon="⚠️")    
+            else:
+                st.markdown("<h5><u>Charts</u></h5>",unsafe_allow_html=True)
+                folium_static(m)
 
 
 
