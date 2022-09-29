@@ -129,7 +129,7 @@ with hcol2:
     
     #Scatter plot
     if type == 'Scatter' and xvar !="" and yvar !="":
-        scatter = plt.subplots()
+        fig, scatter = plt.subplots()
         scatter= plt.plot(dataset[xvar], dataset[yvar])
         st.pyplot(scatter)
     #Geographic Plots
