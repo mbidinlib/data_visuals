@@ -106,7 +106,9 @@ with hcol1:
             latvar = st.selectbox(
                 'Select Latitude variable',
                 columns)    
-    
+            name = st.selectbox(
+                        'Select Label variable',
+                        columns)
 with hcol2:          
     # Define plots
     ##############
@@ -120,9 +122,9 @@ with hcol2:
         '''.format(loc)
 
         data =  dataset
-        lat = dataset.latvar
-        lon = dataset.lonvar
-        name = data.name 
+        lat = dataset[latvar]
+        lon = dataset[lonvar]
+        name = data[name] 
 
         fig2=Figure(width=550,height=350)
         m = folium.Map(location=[(lat.max()+ lat.min())/2,
