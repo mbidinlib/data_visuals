@@ -218,12 +218,17 @@ with hcol2:
         if display == "Dataset":
             st.markdown("<h5><u>Data Overview</u></h5>",unsafe_allow_html=True)
             st.dataframe(dataset)
+        
+        # Show Charts
         elif display =="Chart":
-            if latvar == "" or lonvar == "":
-                st.warning('Select required variables', icon="⚠️")    
-            else:
-                st.markdown("<h5><u>Charts</u></h5>",unsafe_allow_html=True)
+            if type == 'Scatter' and xvar !="" and yvar !="":
+                st.markdown("<h5><u>Scatter Plot of {xvar} and {yvar}</u></h5>",unsafe_allow_html=True)
+                st.pyplot(scatter)
+            #Geographic Plots
+            if type == 'Goespatial' and lonvar !="" and latvar !="":
+                st.markdown("<h5><u>Geospatial Plot of {longvar} and {latvar}</u></h5>",unsafe_allow_html=True)
                 folium_static(m)
+
 
 
 with hcol1:
