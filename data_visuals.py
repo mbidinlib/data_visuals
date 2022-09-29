@@ -113,6 +113,9 @@ with hcol1:
                 columns)
             # Add Color picker
             if  xvar !="" and yvar !="":
+                stitle = st.text_input("Y label", "Scatter plot")
+                sxlab = st.text_input("X label", "X-axis")
+                sylab = st.text_input("Y label", "Y-axis")
                 scolor = st.color_picker('Plot color', '#0A8FBF', key="scolor")
 
         
@@ -135,7 +138,10 @@ with hcol2:
     if type == 'Scatter' and xvar !="" and yvar !="":
         fig, scatter = plt.subplots()
         scatter= plt.scatter(dataset[xvar], dataset[yvar], c= scolor)
+        scatter.xlabel("X-axis")
+        scatter.ylabel("Y-axis")
         st.pyplot(fig)
+    
     #Geographic Plots
     if type == 'Goespatial' and lonvar !="" and latvar !="":
         loc = "Plot of Coordinates"
