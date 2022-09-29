@@ -133,7 +133,7 @@ with hcol1:
 with hcol2:       
     
     # Trigger display
-    if display == "Dataset":
+    if "dataset" in st.session_state and display == "Dataset":
         st.markdown("<h5><u>Data Overview</u></h5>",unsafe_allow_html=True)
         st.dataframe(dataset)
         
