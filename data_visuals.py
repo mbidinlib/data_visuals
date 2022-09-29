@@ -105,31 +105,36 @@ with hcol1:
 
         # Define Scatter inputs
         if type == 'Scatter':
-            xvar = st.selectbox(
-                'Select x variable',
-                columns)    
-            yvar = st.selectbox(
-                'Select y variable',
-                columns)
-            # Add Color picker
+            # Main variables
+            with  st.expander("Main variable selection",expanded=False):
+                xvar = st.selectbox(
+                    'Select x variable',
+                    columns)    
+                yvar = st.selectbox(
+                    'Select y variable',
+                    columns)
+            # Additional parameters
             if  xvar !="" and yvar !="":
-                stitle = st.text_input("Y label", "Scatter plot")
-                sxlab = st.text_input("X label", "X-axis")
-                sylab = st.text_input("Y label", "Y-axis")
-                scolor = st.color_picker('Plot color', '#0A8FBF', key="scolor")
+                with  st.expander("Additional parameters",expanded=False):
+                    stitle = st.text_input("Y label", "Scatter plot")
+                    sxlab = st.text_input("X label", "X-axis")
+                    sylab = st.text_input("Y label", "Y-axis")
+                    scolor = st.color_picker('Plot color', '#0A8FBF', key="scolor")
 
         
         # Define geospatial inputs
         if type == 'Goespatial':
-            lonvar = st.selectbox(
-                'Select Longitude variable',
-                columns)    
-            latvar = st.selectbox(
-                'Select Latitude variable',
-                columns)    
-            namevar = st.selectbox(
-                        'Select Label variable',
-                        columns)
+            with  st.expander("Main variable selection",expanded=False):
+                lonvar = st.selectbox(
+                    'Select Longitude variable',
+                    columns)    
+                latvar = st.selectbox(
+                    'Select Latitude variable',
+                    columns)    
+            with  st.expander("Additional parameters",expanded=False):
+                namevar = st.selectbox(
+                            'Select Label variable',
+                            columns)
 with hcol2:       
     
     # Trigger display
