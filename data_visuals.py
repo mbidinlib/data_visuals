@@ -6,7 +6,6 @@ Purpose: Data Engineering
 from io import StringIO
 import pandas as pd
 import streamlit as st
-import plotmaps as plotmap
 
 import folium
 import streamlit as st
@@ -113,7 +112,6 @@ with hcol3:
         '''.format(loc)
 
         data =  dataset
-
         #Step 4
         lat = data.lat
         lon = data.lon
@@ -196,7 +194,7 @@ with hcol3:
             st.dataframe(dataset)
         elif display =="Chart":
             st.markdown("<h5><u>Charts</u></h5>",unsafe_allow_html=True)
-            st.dataframe(plotmap.data)
+
             
 
 
