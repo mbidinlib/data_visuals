@@ -70,20 +70,25 @@ with st.sidebar:
         width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
     st.markdown('<a href="https://www.github.com/mbidinlib/" target="_blank">Mathew Bidinlib </a>',unsafe_allow_html=True)
 
-hcol1, hcol2,hcol3 = st.columns((2,0.4,4))
+hcol1, hcol2 = st.columns((1,4))
 
 with hcol1:
     st.markdown("")
     st.markdown("")
-    option = st.selectbox(
-        'Select visualization type',
-        ('Bar','Goegraphic'))
-
-with hcol2:
-    ""
+    if "ds" in st.session_state:
+        type = st.selectbox(
+            'Select visualization type',
+            ('Bar','Goegraphic'))
+        if type == 'Goegraphic':
+            lonvar = st.selectbox(
+                'Select Longitude variable',
+                ds.columns)    
+            latvar = st.selectbox(
+                'Select Latitude variable',
+                ds.columns)    
     
 
-with hcol3:
+with hcol2:
     # Read data
     if "ds" in st.session_state:
         df= st.session_state["ds"]
