@@ -130,7 +130,14 @@ with hcol1:
             namevar = st.selectbox(
                         'Select Label variable',
                         columns)
-with hcol2:          
+with hcol2:       
+    
+    # Trigger display
+    if display == "Dataset":
+        st.markdown("<h5><u>Data Overview</u></h5>",unsafe_allow_html=True)
+        st.dataframe(dataset)
+        
+       
     # Define plots
     ##############
     
@@ -224,20 +231,14 @@ with hcol2:
         m.get_root().html.add_child(folium.Element(title_html))   
                 
                  
-    
-        # Trigger display
-        if display == "Dataset":
-            st.markdown("<h5><u>Data Overview</u></h5>",unsafe_allow_html=True)
-            st.dataframe(dataset)
-        
         # Show Charts
-        elif display =="Chart":
+        if display =="Chart":
             #Geographic Plots
             st.markdown(f"""<h5><u>Geospatial Plot of ${lonvar} and {latvar}</u></h5>""",unsafe_allow_html=True)
             folium_static(m)
 
 
 
-with hcol1:
+with hcol3:
     st.markdown("")
 
