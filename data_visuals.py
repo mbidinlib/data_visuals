@@ -100,8 +100,8 @@ with hcol1:
         columns = dataset.columns
         type = st.selectbox(
             'Select visualization type',
-            ('Bar','Goegraphic'))
-        if type == 'Goegraphic':
+            ('Bar','Goespatial'))
+        if type == 'Goespatial':
             lonvar = st.selectbox(
                 'Select Longitude variable',
                 columns, index=1)    
@@ -116,7 +116,7 @@ with hcol2:
     ##############
         
     #Geographic Plots
-    if type == 'Goegraphic' and lonvar !="" and latvar !="":
+    if type == 'Goespatial' and lonvar !="" and latvar !="":
         loc = "Plot of Coordinates"
         title_html = '''
         <h1 style="text-align: center; font-size: 18px; font-weight: bold; color: 
@@ -128,9 +128,12 @@ with hcol2:
         lon = dataset[lonvar]
         name = data[namevar] 
 
+        # Draw initial map
         fig2=Figure(width=310,height=310)
         m = folium.Map(location=[(lat.max()+ lat.min())/2,
                                 (lon.max()+ lon.min())/2], zoom_start=6)
+        
+        #Add markers
         for i in range(0,len(data)):
             folium.Marker(
                 location=[data.iloc[i][latvar], data.iloc[i][lonvar]],
@@ -183,7 +186,17 @@ with hcol2:
         fig2.add_child(m)
         folium.LayerControl().add_to(m)
         #Add title
-        m.get_root().html.add_child(folium.Element(title_html))            
+        #m.get_root().html.add_child(folium.Element(title_html))   
+        
+        #Add Layers and tiles
+        folium.TileLayer('Stamen Terrain').add_to(m)
+        folium.TileLayer('Stamen Toner').add_to(m)
+        folium.TileLayer('Stamen Water Color').add_to(m)
+        folium.TileLayer('cartodbpositron').add_to(m)
+        folium.TileLayer('cartodbdark_matter').add_to(m)
+        folium.LayerControl().add_to(m)
+        
+                 
     
         # Trigger display
         if display == "Dataset":
