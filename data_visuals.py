@@ -187,15 +187,7 @@ with hcol2:
         folium.LayerControl().add_to(m)
         #Add title
         m.get_root().html.add_child(folium.Element(title_html))   
-        
-        #Add Layers and tiles
-        folium.TileLayer('Stamen Terrain').add_to(m)
-        folium.TileLayer('Stamen Toner').add_to(m)
-        folium.TileLayer('Stamen Water Color').add_to(m)
-        folium.TileLayer('cartodbpositron').add_to(m)
-        folium.TileLayer('cartodbdark_matter').add_to(m)
-        folium.LayerControl().add_to(m)
-        
+                
                  
     
         # Trigger display
