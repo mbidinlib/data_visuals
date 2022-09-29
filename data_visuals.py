@@ -99,14 +99,14 @@ with hcol1:
         columns = dataset.columns
         type = st.selectbox(
             'Select visualization type',
-            ('Bar','Goegraphic'))
+            ('Bar','Goegraphic'), index=0)
         if type == 'Goegraphic':
             lonvar = st.selectbox(
                 'Select Longitude variable',
-                columns)    
+                columns, index=0)    
             latvar = st.selectbox(
                 'Select Latitude variable',
-                columns)    
+                columns , index=0)    
             name = st.selectbox(
                         'Select Label variable',
                         columns)
