@@ -58,6 +58,13 @@ with st.sidebar:
     st.markdown("""<b>Welcome to <a href="https://www.github.com/mbidinlib/" target="_blank">MGlory </a> Data Visualization toolkit. 
     This tool will help you visualize your data in charts, maps and others</b>""",unsafe_allow_html=True)
     st.markdown("")
+    
+    st.markdown("<h5><u>Data Selection</u></h5>",unsafe_allow_html=True)
+    with  st.expander("Click here to import data",expanded=False):
+        ds = st.file_uploader("Select Data file", type=["csv", 'xlsx'], key = "data1")
+        if ds:
+            st.session_state["ds"] = ds
+
 
     st.markdown("## Display Mode")
     display = st.radio("",('Dataset', 'Chart'))
@@ -66,12 +73,6 @@ with st.sidebar:
     st.markdown('<a href="https://www.github.com/mbidinlib/" target="_blank">Mathew Bidinlib </a>',unsafe_allow_html=True)
 
 hcol1, hcol2,hcol3 = st.columns((2,0.4,4))
-
-st.markdown("<h5><u>Data Selection</u></h5>",unsafe_allow_html=True)
-with  st.expander("Click here to import data",expanded=False):
-    ds = st.file_uploader("Select Data file", type=["csv", 'xlsx'], key = "data1")
-    if ds:
-        st.session_state["ds"] = ds
 
 with hcol1:
     st.markdown("")
