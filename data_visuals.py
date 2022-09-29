@@ -194,6 +194,7 @@ with hcol3:
             st.dataframe(dataset)
         elif display =="Chart":
             st.markdown("<h5><u>Charts</u></h5>",unsafe_allow_html=True)
+            folium_static(m)
 
             
 
