@@ -5,6 +5,7 @@ Purpose: Data Engineering
 '''
 from io import StringIO
 import pandas as pd
+import matplotlib.pyplot as plt
 import streamlit as st
 
 import folium
@@ -100,11 +101,22 @@ with hcol1:
         columns = dataset.columns
         type = st.selectbox(
             'Select visualization type',
-            ('Bar','Goespatial'))
+            ('Scatter','Goespatial'))
+
+        # Define Scatter inputs
+        if type == 'Scatter':
+            xvar = st.selectbox(
+                'Select x variable',
+                columns)    
+            yvar = st.selectbox(
+                'Select y variable',
+                columns)    
+        
+        # Define geospatial inputs
         if type == 'Goespatial':
             lonvar = st.selectbox(
                 'Select Longitude variable',
-                columns, index=1)    
+                columns)    
             latvar = st.selectbox(
                 'Select Latitude variable',
                 columns)    
@@ -114,7 +126,11 @@ with hcol1:
 with hcol2:          
     # Define plots
     ##############
-        
+    
+    #Scatter plot
+    if type == 'Scatter' and xvar !="" and yvar !="":
+        plt.scatter(dataset[xvar], dataset[yvar])
+    
     #Geographic Plots
     if type == 'Goespatial' and lonvar !="" and latvar !="":
         loc = "Plot of Coordinates"
