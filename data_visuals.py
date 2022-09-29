@@ -108,7 +108,7 @@ with hcol1:
             latvar = st.selectbox(
                 'Select Latitude variable',
                 columns)    
-            name = st.selectbox(
+            namevar = st.selectbox(
                         'Select Label variable',
                         columns)
 with hcol2:          
@@ -133,8 +133,8 @@ with hcol2:
                                 (lon.max()+ lon.min())/2], zoom_start=6)
         for i in range(0,len(data)):
             folium.Marker(
-                location=[data.iloc[i][lat], data.iloc[i][lon]],
-                popup=data.iloc[i][name],
+                location=[data.iloc[i][latvar], data.iloc[i][lonvar]],
+                popup=data.iloc[i][namevar],
                 icon=folium.Icon(color = 'black', icon='info-sign')
             ).add_to(m)
 
