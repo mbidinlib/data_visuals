@@ -134,7 +134,7 @@ with hcol2:
     #Scatter plot
     if type == 'Scatter' and xvar !="" and yvar !="":
         fig, scatter = plt.subplots()
-        scatter= plt.plot(dataset[xvar], dataset[yvar], c= scolor)
+        scatter= plt.scatter(dataset[xvar], dataset[yvar], c= scolor)
         st.pyplot(fig)
     #Geographic Plots
     if type == 'Goespatial' and lonvar !="" and latvar !="":
