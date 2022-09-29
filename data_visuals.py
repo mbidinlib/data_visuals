@@ -67,15 +67,18 @@ with st.sidebar:
 
 hcol1, hcol2,hcol3 = st.columns((2,0.4,4))
 
-with hcol1:
-    st.markdown("<h5><u>Data Selection</u></h5>",unsafe_allow_html=True)
-    with  st.expander("Click here to import data",expanded=False):
-        ds = st.file_uploader("Select Data file", type=["csv", 'xlsx'], key = "data1")
-        if ds:
-            st.session_state["ds"] = ds
+st.markdown("<h5><u>Data Selection</u></h5>",unsafe_allow_html=True)
+with  st.expander("Click here to import data",expanded=False):
+    ds = st.file_uploader("Select Data file", type=["csv", 'xlsx'], key = "data1")
+    if ds:
+        st.session_state["ds"] = ds
 
-        st.markdown("")
-        st.markdown("")
+with hcol1:
+    st.markdown("")
+    st.markdown("")
+    option = st.selectbox(
+        'Select visualization type',
+        ('Bar','Goegraphic'))
 
 with hcol2:
     ""
@@ -99,12 +102,12 @@ with hcol3:
             st.markdown("""**This file is type is currently not accepted. Upload a file with a .csv or xls extenssion. 
             #Support for Other file extensions would be added later**""")
         
+        
+        
+        
         # Define plots
         ##############
-        
-        
         #Maps
-        # Step 1
         loc = "Plot of Coordinates"
         title_html = '''
         <h1 style="text-align: center; font-size: 18px; font-weight: bold; color: 
@@ -112,7 +115,6 @@ with hcol3:
         '''.format(loc)
 
         data =  dataset
-        #Step 4
         lat = data.lat
         lon = data.lon
         name = data.name 
@@ -120,15 +122,12 @@ with hcol3:
         fig2=Figure(width=550,height=350)
         m = folium.Map(location=[(lat.max()+ lat.min())/2,
                                 (lon.max()+ lon.min())/2], zoom_start=5)
-
-
         for i in range(0,len(data)):
             folium.Marker(
                 location=[data.iloc[i]['lat'], data.iloc[i]['lon']],
                 popup=data.iloc[i]['name'],
                 icon=folium.Icon(color = 'black', icon='info-sign')
             ).add_to(m)
-
 
         # Add custom base maps to folium
         basemaps = {
@@ -168,22 +167,15 @@ with hcol3:
                 control = True
             )
         }
-
-
-
         # Add custom basemaps
         basemaps['Google Maps'].add_to(m)
         basemaps['Google Satellite Hybrid'].add_to(m)
-
         #Layers
         fig2.add_child(m)
         folium.LayerControl().add_to(m)
-
         #Add title
         m.get_root().html.add_child(folium.Element(title_html))
-        
-        #m.save('index.html')
-        #m.save('index.png') 
+
 
             
             
