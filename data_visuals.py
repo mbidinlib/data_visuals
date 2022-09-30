@@ -57,7 +57,7 @@ with st.sidebar:
 
     st.markdown("""
                 ## <b>Welcome to <a href="https://www.github.com/mbidinlib/" target="_blank">MGlory </a> Data Visualization toolkit. 
-                This is a python based toolkit that helps you visualize your data</b>""",unsafe_allow_html=True)
+                ## This is a python based toolkit that helps you visualize your data</b>""",unsafe_allow_html=True)
     st.markdown("")
 
     st.markdown( """# <u>Get Started</u>""", unsafe_allow_html=True)
