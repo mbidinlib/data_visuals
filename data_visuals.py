@@ -103,7 +103,7 @@ with hcol1:
         columns = dataset.columns
         type = st.selectbox(
             'Select visualization type',
-            ('Scatter','Goespatial'))
+            ('Scatter', 'Line','Goespatial'))
 
         # Define Scatter inputs
         if type == 'Scatter':
@@ -121,6 +121,32 @@ with hcol1:
                     stitle = st.text_input("Y label", "Scatter plot")
                     sxlab = st.text_input("X label", "X-axis")
                     sylab = st.text_input("Y label", "Y-axis")
+                    scolor = st.color_picker('Plot color', '#0A8FBF', key="scolor")
+
+
+        # Define Scatter inputs
+        if type == 'Line':
+            # Main variables
+            with  st.expander("Variable selection",expanded=False):
+                var1 = st.selectbox(
+                    'Select variable 1',
+                    columns)    
+                var2 = st.selectbox(
+                    'Select variable 2',
+                    columns)
+                var3 = st.selectbox(
+                    'Select variable 2',
+                    columns)
+                var4 = st.selectbox(
+                    'Select variable 2',
+                    columns)
+                var5 = st.selectbox(
+                    'Select variable 2',
+                    columns)
+
+            # Additional parameters
+            if  var1 !="" and var2 !="" and var3!="" and var4 !="" and var5 !="":
+                with  st.expander("Additional parameters",expanded=False):
                     scolor = st.color_picker('Plot color', '#0A8FBF', key="scolor")
 
         
@@ -155,6 +181,15 @@ with hcol2:
             #fig.xlabel(sxlab)
             #fig.ylabel(sylab)
             st.pyplot(fig)
+
+        # Line Plot
+        if type == 'Line' and var1 !="" and var2 !="" and var3!="" and var4 !="" and var5 !="":
+            lfig, line = plt.subplots()
+            line= plt.scatter(dataset[var1], dataset[var2],dataset[var3], dataset[var4] , dataset[var5], c= scolor)
+            #fig.xlabel(sxlab)
+            #fig.ylabel(sylab)
+            st.pyplot(lfig)
+
         
         #Geographic Plots
         if type == 'Goespatial' and lonvar !="" and latvar !="":
