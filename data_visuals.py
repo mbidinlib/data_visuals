@@ -238,7 +238,7 @@ with hcol2:
                     
             # Show Charts
             #Geographic Plots
-            st.markdown(f"""<h5><u>Geospatial Plot of ${lonvar} and {latvar}</u></h5>""",unsafe_allow_html=True)
+            st.markdown(f"""<h5><u>Geospatial Plot of {lonvar} and {latvar} variables</u></h5>""",unsafe_allow_html=True)
             folium_static(m)
 
 
