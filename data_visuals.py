@@ -55,8 +55,9 @@ st.markdown(""" ## <center><b><h3><font color = 'maroon'>MGlory Data Visualizati
 with st.sidebar:
 # Define the sidebar
 
-    st.markdown("""## <b>Welcome to <a href="https://www.github.com/mbidinlib/" target="_blank">MGlory </a> Data Visualization toolkit. 
-    This is a python based toolkit that helps you visualize your data</b>""",unsafe_allow_html=True)
+    st.markdown("""
+                ## <b>Welcome to <a href="https://www.github.com/mbidinlib/" target="_blank">MGlory </a> Data Visualization toolkit. 
+                This is a python based toolkit that helps you visualize your data</b>""",unsafe_allow_html=True)
     st.markdown("")
 
     st.markdown( """# <u>Get Started</u>""", unsafe_allow_html=True)
@@ -76,8 +77,6 @@ with st.sidebar:
 
 hcol1, hcol2, hcol3 = st.columns((1,4,0.2))
 if not("ds" in st.session_state):
-    st.markdown("""## <b>Welcome to <a href="https://www.github.com/mbidinlib/" target="_blank">MGlory </a> Data Visualization toolkit. 
-         </b>""",unsafe_allow_html=True)
     st.markdown("## Select Dataset at the sidebar")
 with hcol1:
     st.markdown("")
