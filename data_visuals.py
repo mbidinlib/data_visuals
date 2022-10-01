@@ -138,10 +138,10 @@ with hcol1:
                     'Select variable 3',
                     columns)
                 var4 = st.selectbox(
-                    'Select variable 3',
+                    'Select variable 4',
                     columns)
                 var5 = st.selectbox(
-                    'Select variable 4',
+                    'Select variable 5',
                     columns)
 
             # Additional parameters
