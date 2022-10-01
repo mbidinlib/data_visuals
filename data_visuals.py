@@ -185,7 +185,7 @@ with hcol2:
         # Line Plot
         if type == 'Line' and (var1 !="" or var2 !="" or var3!="" or var4 !="" or var5 !=""):
             lfig, line = plt.subplots()
-            line= plt.plot(dataset[var1], dataset[var2],dataset[var3], dataset[var4] , dataset[var5], c= scolor)
+            line= plt.plot(dataset[var1], c= scolor)
             #fig.xlabel(sxlab)
             #fig.ylabel(sylab)
             st.pyplot(lfig)
