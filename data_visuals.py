@@ -128,24 +128,10 @@ with hcol1:
         if type == 'Line':
             # Main variables
             with  st.expander("Variable selection",expanded=False):
-                var1 = st.selectbox(
-                    'Select variable 1',
-                    columns, key='var1')    
-                var2 = st.selectbox(
-                    'Select variable 2',
-                    columns,key='var2')
-                var3 = st.selectbox(
-                    'Select variable 3',
-                    columns, key='var3')
-                var4 = st.selectbox(
-                    'Select variable 4',
-                    columns, key='var4')
-                var5 = st.selectbox(
-                    'Select variable 5',
-                    columns, key='var5')
-
+                    linevars = st.multiselect("""Select the variables for the line plot. 
+                                              """, columns)
             # Additional parameters
-            if  var1 !="" and var2 !="" and var3!="" and var4 !="" and var5 !="":
+            if  linevars !="":
                 with  st.expander("Additional parameters",expanded=False):
                     lcolor = st.color_picker('Line color', '#0A8FBF', key="lcolor")
 
@@ -183,9 +169,9 @@ with hcol2:
             st.pyplot(fig)
 
         # Line Plot
-        if type == 'Line' and (var1 !="" or var2 !="" or var3!="" or var4 !="" or var5 !=""):
+        if type == 'Line' and linevars !="":
             lfig, line = plt.subplots()
-            line= plt.plot(dataset[var1], c= lcolor)
+            line= plt.plot(dataset[linevars], c= lcolor)
             #fig.xlabel(sxlab)
             #fig.ylabel(sylab)
             st.pyplot(lfig)
