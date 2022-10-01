@@ -130,19 +130,19 @@ with hcol1:
             with  st.expander("Variable selection",expanded=False):
                 var1 = st.selectbox(
                     'Select variable 1',
-                    columns)    
+                    columns, key='var1')    
                 var2 = st.selectbox(
                     'Select variable 2',
-                    columns)
+                    columns,key='var2')
                 var3 = st.selectbox(
                     'Select variable 3',
-                    columns)
+                    columns, key='var3')
                 var4 = st.selectbox(
                     'Select variable 4',
-                    columns)
+                    columns, key='var4')
                 var5 = st.selectbox(
                     'Select variable 5',
-                    columns)
+                    columns, key='var5')
 
             # Additional parameters
             if  var1 !="" and var2 !="" and var3!="" and var4 !="" and var5 !="":
@@ -183,7 +183,7 @@ with hcol2:
             st.pyplot(fig)
 
         # Line Plot
-        if type == 'Line' and var1 !="" and var2 !="" and var3!="" and var4 !="" and var5 !="":
+        if type == 'Line' and (var1 !="" or var2 !="" or var3!="" or var4 !="" or var5 !=""):
             lfig, line = plt.subplots()
             line= plt.scatter(dataset[var1], dataset[var2],dataset[var3], dataset[var4] , dataset[var5], c= scolor)
             #fig.xlabel(sxlab)
