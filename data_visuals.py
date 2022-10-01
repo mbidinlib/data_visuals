@@ -147,7 +147,7 @@ with hcol1:
             # Additional parameters
             if  var1 !="" and var2 !="" and var3!="" and var4 !="" and var5 !="":
                 with  st.expander("Additional parameters",expanded=False):
-                    scolor = st.color_picker('Plot color', '#0A8FBF', key="scolor")
+                    lcolor = st.color_picker('Line color', '#0A8FBF', key="lcolor")
 
         
         # Define geospatial inputs
@@ -185,7 +185,7 @@ with hcol2:
         # Line Plot
         if type == 'Line' and (var1 !="" or var2 !="" or var3!="" or var4 !="" or var5 !=""):
             lfig, line = plt.subplots()
-            line= plt.plot(dataset[var1], c= scolor)
+            line= plt.plot(dataset[var1], c= lcolor)
             #fig.xlabel(sxlab)
             #fig.ylabel(sylab)
             st.pyplot(lfig)
