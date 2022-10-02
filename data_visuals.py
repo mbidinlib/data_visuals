@@ -198,7 +198,7 @@ with hcol2:
             fig, line = plt.subplots()
             for j in linevars:
                 line= plt.plot(dataset[j], label=j)
-            plt.legend(loc=lineloc, shadow=linelegshad, fontsize=linelegsize)
+            plt.legend(loc=lineloc, shadow=llegshad, fontsize=llegsize)
             plt.xlabel(lxlab)
             plt.ylabel(lylab)
             if lshowgrid =='Yes':
