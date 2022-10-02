@@ -103,7 +103,7 @@ with hcol1:
         columns = dataset.columns
         type = st.selectbox(
             'Select visualization type',
-            ('Scatter', 'Line','Goespatial'))
+            ('Line','Scatter','Goespatial'))
 
         # Define Scatter inputs
         if type == 'Scatter':
@@ -116,12 +116,19 @@ with hcol1:
                     'Select y variable',
                     columns)
             # Additional parameters
-            if  xvar !="" and yvar !="":
+            if  xvar !=""  or yvar !="":
                 with  st.expander("Additional parameters",expanded=False):
                     stitle = st.text_input("Y label", "Scatter plot")
                     sxlab = st.text_input("X label", "X-axis")
                     sylab = st.text_input("Y label", "Y-axis")
+                    #Plot color
                     scolor = st.color_picker('Plot color', '#0A8FBF', key="scolor")
+                    # Gridlines
+                    sshowgrid = st.selectbox('show gid lines', ('Yes','No'))
+                    if sshowgrid =='Yes':
+                        sgridcolor = st.color_picker('Grid color', '#0A8FBF', key="scolor")
+                        sgridaxis = st.selectbox('Grid axis', ('both','x', 'y'))
+
 
 
         # Define Scatter inputs
@@ -138,11 +145,16 @@ with hcol1:
                         ('best', 'upper right', 'upper left','lower left', 
                          'lower right', 'right', 'center left', 'center right',
                          'lower center', 'upper center','center'))    
-                    linelegshad = st.selectbox('Legend Shadow', ("False", "True"))
-                    linelegsize = st.selectbox("Legend size", 
+                    llegshad = st.selectbox('Legend Shadow', ("False", "True"))
+                    llegsize = st.selectbox("Legend size", 
                                                ('xx-small', 'x-small', 'small', 'medium', 
                                                 'large', 'x-large', 'xx-large'),
                                                 )
+                    lshowgrid = st.selectbox('show gid lines', ('Yes','No'))
+                    if lshowgrid =='Yes':
+                        lgridcolor = st.color_picker('Grid color', '#0A8FBF', key="scolor")
+                        lgridaxis = st.selectbox('Grid axis', ('both','x', 'y'))
+                        
 
      
         
@@ -176,6 +188,9 @@ with hcol2:
             scatter= plt.scatter(dataset[xvar], dataset[yvar], c= scolor)
             plt.xlabel(sxlab)
             plt.ylabel(sylab)
+            if sshowgrid =='Yes':
+                plt.grid(color=sgridcolor, axis = sgridaxis)
+
             st.pyplot(fig)
 
         # Line Plot
@@ -186,6 +201,9 @@ with hcol2:
             plt.legend(loc=lineloc, shadow=linelegshad, fontsize=linelegsize)
             plt.xlabel(lxlab)
             plt.ylabel(lylab)
+            if lshowgrid =='Yes':
+                plt.grid(color=lgridcolor, axis = lgridaxis)
+
             st.pyplot(fig)
 
         #Geographic Plots
