@@ -130,11 +130,6 @@ with hcol1:
             with  st.expander("Variable selection",expanded=False):
                     linevars = st.multiselect("""Select the variables for the line plot. 
                                               """, columns)
-            # Additional parameters
-            if  linevars !="":
-                    lxlab = st.text_input("X-label", "X-axis")
-                    lylab = st.text_input("Y-label", "Y-axis")
-
         
         # Define geospatial inputs
         if type == 'Goespatial':
@@ -170,7 +165,7 @@ with hcol2:
 
         # Line Plot
         if type == 'Line' and linevars !="":
-            st.line_chart(dataset[linevars], y=dataset.lon)
+            st.line_chart(dataset[linevars])
 
         #Geographic Plots
         if type == 'Goespatial' and lonvar !="" and latvar !="":
