@@ -132,8 +132,7 @@ with hcol1:
                                               """, columns)
             if  linevars  !="" :
                 with  st.expander("Additional parameters",expanded=False):
-                    lineloc = st.selectbox(
-                        'Location of legend',
+                    lineloc = st.selectbox('Location of legend',
                         ('best', 'upper right', 'upper left','lower left', 
                          'lower right', 'right', 'center left', 'center right',
                          'lower center', 'upper center','center'), 'best')    
