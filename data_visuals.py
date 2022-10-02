@@ -132,8 +132,8 @@ with hcol1:
                                               """, columns)
             # Additional parameters
             if  linevars !="":
-                with  st.expander("Additional parameters",expanded=False):
-                    lcolor = st.color_picker('Line color', '#0A8FBF', key="lcolor")
+                    lxlab = st.text_input("X-label", "X-axis")
+                    lylab = st.text_input("Y-label", "Y-axis")
 
         
         # Define geospatial inputs
@@ -171,9 +171,10 @@ with hcol2:
         # Line Plot
         if type == 'Line' and linevars !="":
             
+            line= plt.plot(dataset[linevars], c= lcolor)
             #fig.xlabel(sxlab)
             #fig.ylabel(sylab)
-            st.line_chart(dataset[linevars])
+            st.pyplot(lfig)
 
         
         #Geographic Plots
