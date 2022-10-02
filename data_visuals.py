@@ -124,7 +124,7 @@ with hcol1:
                     #Plot color
                     scolor = st.color_picker('Plot color', '#0A8FBF', key="scolor")
                     # Gridlines
-                    sshowgrid = st.selectbox('show gid lines', ('Yes','No'))
+                    sshowgrid = st.selectbox('show gid lines', ('No', 'Yes'))
                     if sshowgrid =='Yes':
                         sgridcolor = st.color_picker('Grid color', '#0A8FBF', key="scolor")
                         sgridaxis = st.selectbox('Grid axis', ('both','x', 'y'))
@@ -150,7 +150,7 @@ with hcol1:
                                                ('xx-small', 'x-small', 'small', 'medium', 
                                                 'large', 'x-large', 'xx-large'),
                                                 )
-                    lshowgrid = st.selectbox('show gid lines', ('Yes','No'))
+                    lshowgrid = st.selectbox('show gid lines', ('No', 'Yes'))
                     if lshowgrid =='Yes':
                         lgridcolor = st.color_picker('Grid color', '#0A8FBF', key="scolor")
                         lgridaxis = st.selectbox('Grid axis', ('both','x', 'y'))
