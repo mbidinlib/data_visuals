@@ -169,7 +169,7 @@ with hcol2:
             fig, line = plt.subplots()
             line= plt.plot(dataset.lon)
             line= plt.plot(dataset.lat)
-            line.legend(loc='upper center', shadow=True, fontsize='large')
+            plt.legend(loc='upper center', shadow=True, fontsize='large')
 
             #fig.xlabel(sxlab)
             #fig.ylabel(sylab)
