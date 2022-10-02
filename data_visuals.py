@@ -167,8 +167,8 @@ with hcol2:
         if type == 'Line' and linevars !="":
             #st.line_chart(dataset[linevars])
             fig, line = plt.subplots()
-            line= plt.plot(dataset.lon)
-            line= plt.plot(dataset.lat)
+            line= plt.plot(dataset.lon, label='lon')
+            line= plt.plot(dataset.lat, label='lat')
             plt.legend(loc='upper center', shadow=True, fontsize='large')
 
             #fig.xlabel(sxlab)
