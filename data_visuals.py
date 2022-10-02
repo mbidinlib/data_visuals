@@ -130,6 +130,19 @@ with hcol1:
             with  st.expander("Variable selection",expanded=False):
                     linevars = st.multiselect("""Select the variables for the line plot. 
                                               """, columns)
+            if  linevars  !="" :
+                with  st.expander("Additional parameters",expanded=False):
+                    lineloc = st.selectbox(
+                        'Location of legend',
+                        ('best', 'upper right', 'upper left','lower left', 
+                         'lower right', 'right', 'center left', 'center right',
+                         'lower center', 'upper center','center'), 'best')    
+                    linelegshad = st.selectbox('Legend Shadow', ("False", "True"), "False")
+                    linelegsize = st.selectbox("Legend size", 
+                                               ('xx-small', 'x-small', 'small', 'medium', 
+                                                'large', 'x-large', 'xx-large'),
+                                               'medium'    )
+     
         
         # Define geospatial inputs
         if type == 'Goespatial':
@@ -168,7 +181,7 @@ with hcol2:
             fig, line = plt.subplots()
             for j in linevars:
                 line= plt.plot(dataset[j], label=j)
-            plt.legend(loc='upper left', shadow=True, fontsize='large')
+            plt.legend(loc=lineloc, shadow=linelegshad, fontsize=linelegsize)
             st.pyplot(fig)
 
         #Geographic Plots
