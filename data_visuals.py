@@ -145,8 +145,10 @@ with hcol1:
                         ('best', 'upper right', 'upper left','lower left', 
                          'lower right', 'right', 'center left', 'center right',
                          'lower center', 'upper center','center'))    
-                    llegshad = st.selectbox('Legend Shadow', ("False", "True"))
-                    llegsize = st.selectbox("Legend size", 
+                    lshowleg = st.selectbox('Show legend', ("Yes", "No"))
+                    if lshowleg == "Yes":
+                        llegshad = st.selectbox('Legend Shadow', ("False", "True"))
+                        llegsize = st.selectbox("Legend size", 
                                                ('xx-small', 'x-small', 'small', 'medium', 
                                                 'large', 'x-large', 'xx-large'),
                                                 )
@@ -198,7 +200,8 @@ with hcol2:
             fig, line = plt.subplots()
             for j in linevars:
                 line= plt.plot(dataset[j], label=j)
-            plt.legend(loc=lineloc, shadow=llegshad, fontsize=llegsize)
+            if lshowleg == 'Yes':
+                plt.legend(loc=lineloc, shadow=llegshad, fontsize=llegsize)
             plt.xlabel(lxlab)
             plt.ylabel(lylab)
             if lshowgrid =='Yes':
