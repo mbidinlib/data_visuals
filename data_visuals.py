@@ -135,12 +135,12 @@ with hcol1:
                     lineloc = st.selectbox('Location of legend',
                         ('best', 'upper right', 'upper left','lower left', 
                          'lower right', 'right', 'center left', 'center right',
-                         'lower center', 'upper center','center'), 'best')    
-                    linelegshad = st.selectbox('Legend Shadow', ("False", "True"), "False")
+                         'lower center', 'upper center','center'))    
+                    linelegshad = st.selectbox('Legend Shadow', ("False", "True"))
                     linelegsize = st.selectbox("Legend size", 
                                                ('xx-small', 'x-small', 'small', 'medium', 
                                                 'large', 'x-large', 'xx-large'),
-                                               'medium'    )
+                                                )
      
         
         # Define geospatial inputs
