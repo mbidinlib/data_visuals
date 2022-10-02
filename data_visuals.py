@@ -170,11 +170,10 @@ with hcol2:
 
         # Line Plot
         if type == 'Line' and linevars !="":
-            lfig, line = plt.subplots()
-            line= plt.plot(dataset[linevars], c= lcolor)
+            
             #fig.xlabel(sxlab)
             #fig.ylabel(sylab)
-            st.pyplot(lfig)
+            st.line_chart(dataset[linevars])
 
         
         #Geographic Plots
