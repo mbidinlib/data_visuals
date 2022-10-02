@@ -132,6 +132,8 @@ with hcol1:
                                               """, columns)
             if  linevars  !="" :
                 with  st.expander("Additional parameters",expanded=False):
+                    lxlab = st.text_input("X label", "X-axis")
+                    lylab = st.text_input("Y label", "Y-axis")
                     lineloc = st.selectbox('Location of legend',
                         ('best', 'upper right', 'upper left','lower left', 
                          'lower right', 'right', 'center left', 'center right',
@@ -141,6 +143,7 @@ with hcol1:
                                                ('xx-small', 'x-small', 'small', 'medium', 
                                                 'large', 'x-large', 'xx-large'),
                                                 )
+
      
         
         # Define geospatial inputs
@@ -171,8 +174,8 @@ with hcol2:
         if type == 'Scatter' and xvar !="" and yvar !="":
             fig, scatter = plt.subplots()
             scatter= plt.scatter(dataset[xvar], dataset[yvar], c= scolor)
-            #fig.xlabel(sxlab)
-            #fig.ylabel(sylab)
+            plt.xlabel(sxlab)
+            plt.ylabel(sylab)
             st.pyplot(fig)
 
         # Line Plot
@@ -181,6 +184,8 @@ with hcol2:
             for j in linevars:
                 line= plt.plot(dataset[j], label=j)
             plt.legend(loc=lineloc, shadow=linelegshad, fontsize=linelegsize)
+            plt.xlabel(lxlab)
+            plt.ylabel(lylab)
             st.pyplot(fig)
 
         #Geographic Plots
