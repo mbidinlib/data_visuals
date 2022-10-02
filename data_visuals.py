@@ -165,16 +165,11 @@ with hcol2:
 
         # Line Plot
         if type == 'Line' and linevars !="":
-            #st.line_chart(dataset[linevars])
             fig, line = plt.subplots()
-            line= plt.plot(dataset.lon, label='lon')
-            line= plt.plot(dataset.lat, label='lat')
-            plt.legend(loc='upper center', shadow=True, fontsize='large')
-
-            #fig.xlabel(sxlab)
-            #fig.ylabel(sylab)
+            for j in linevars:
+                line= plt.plot(dataset[j], label=j)
+            plt.legend(loc='upper left', shadow=True, fontsize='large')
             st.pyplot(fig)
-
 
         #Geographic Plots
         if type == 'Goespatial' and lonvar !="" and latvar !="":
