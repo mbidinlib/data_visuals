@@ -170,7 +170,7 @@ with hcol2:
 
         # Line Plot
         if type == 'Line' and linevars !="":
-            st.line_chart(dataset[linevars], y="Y")
+            st.line_chart(dataset[linevars], y=dataset.lon)
 
         #Geographic Plots
         if type == 'Goespatial' and lonvar !="" and latvar !="":
