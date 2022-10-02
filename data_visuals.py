@@ -170,13 +170,8 @@ with hcol2:
 
         # Line Plot
         if type == 'Line' and linevars !="":
-            
-            line= plt.plot(dataset[linevars], c= lcolor)
-            #fig.xlabel(sxlab)
-            #fig.ylabel(sylab)
-            st.pyplot(lfig)
+            st.line_chart(dataset[linevars], x = lxlab, y = lylab)
 
-        
         #Geographic Plots
         if type == 'Goespatial' and lonvar !="" and latvar !="":
             loc = "Plot of Coordinates"
