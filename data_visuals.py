@@ -239,7 +239,7 @@ with hcol2:
         if type == 'Bar' and barvars !="":
             fig, bar = plt.subplots()
             for j in barvars:
-                bar= plt.bar(dataset[j], label=j)
+                bar= plt.bar(dataset[j], label=j, height=3)
             if bshowleg == 'Yes':
                 plt.legend(loc=barloc, shadow=blegshad, fontsize=blegsize)
             plt.xlabel(bxlab)
