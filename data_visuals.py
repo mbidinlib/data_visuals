@@ -253,6 +253,7 @@ with hcol2:
                 bars = "plt.barh"
             #plot bars
             #fig, bar = plt.subplots()
+            fig = plt.figure(figsize=(10, 4))
             bar= sns.barplot(data = dataset, x= bxvars, y= byvars)
             """
             if bshowleg == 'Yes':
@@ -262,7 +263,7 @@ with hcol2:
             if bshowgrid =='Yes':
                 plt.grid(color=bgridcolor, axis = bgridaxis)
             """
-            st.pyplot(bar)
+            st.pyplot(fig)
             
             
 
