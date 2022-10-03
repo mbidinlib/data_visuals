@@ -161,28 +161,29 @@ with hcol1:
         # Define bar inputs
         if type == 'Bar':
             # Main variables
-            with  st.expander("Variable selection",expanded=False):
-                    btype = st.selectbox("""Type of bars. 
-                                              """, ("Horizontal", "Vertical"))
-                    bxvars = st.selectbox("""Select X (data labels). 
+            with  st.expander("Variable selection For horizontal bars, the X should be the values",expanded=False):
+                    bxvars = st.selectbox("""Select X Variable 
                                               """, columns)
-                    byvars = st.selectbox("""Select the y variable (data values). 
+                    byvars = st.selectbox("""Select the y variable 
                                               """, columns)
-
 
             if  bxvars  !="" and bxvars != "" :
                 with  st.expander("Additional parameters",expanded=False):
                     bxlab = st.text_input("X label", "X-axis")
                     bylab = st.text_input("Y label", "Y-axis")
-                    barloc = st.selectbox('Location of legend',
-                        ('best', 'upper right', 'upper left','lower left', 
-                         'lower right', 'right', 'center left', 'center right',
-                         'lower center', 'upper center','center'))    
+                    berrorb = st.selectbox('show error bars', ('No', 'Yes'))
+                    if berrorb =='Yes':
+                        berrorci = st.number_input('Confidence Interval of error', 95)
+                        #bgridaxis = st.selectbox('Grid axis', ('both','x', 'y'))
+                    
+                    
+                    
                     # Gridline options
-                    bshowgrid = st.selectbox('show gid bars', ('No', 'Yes'))
-                    if bshowgrid =='Yes':
-                        bgridcolor = st.color_picker('Grid color', '#0A8FBF', key="scolor")
-                        bgridaxis = st.selectbox('Grid axis', ('both','x', 'y'))
+                    #bshowgrid = st.selectbox('show gid bars', ('No', 'Yes'))
+                    
+                    #if bshowgrid =='Yes':
+                    #    bgridcolor = st.color_picker('Grid color', '#0A8FBF', key="scolor")
+                    #    bgridaxis = st.selectbox('Grid axis', ('both','x', 'y'))
                     # Bar legend for group bars
                     bshowleg = st.selectbox('Show legend for groups', ("Yes", "No"))
                     if bshowleg == "Yes":
