@@ -248,10 +248,10 @@ with hcol2:
         # bar Plot
         if type == 'Bar' and bxvars !="" and byvars !="":
 
-            if berrorci == "":
-                bci = None
-            else:
+            if berrorb =='Yes':
                 bci = berrorci
+            else:
+                bci = None
             fig = plt.figure(figsize=(10, 8))
             bar= sns.barplot(data = dataset, x= bxvars, y= byvars, 
                              ci=bci)
