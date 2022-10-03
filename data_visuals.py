@@ -261,7 +261,7 @@ with hcol2:
                 
             fig = plt.figure(figsize=(10, 8))
             bar= sns.barplot(data = dataset, x= bxvars, y= byvars, 
-                             ci=bci)
+                             ci=bci, hue=hueval)
             bar.set(xlabel=bxlab, ylabel=bylab)
             """
             if bshowleg == 'Yes':
