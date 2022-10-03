@@ -252,7 +252,7 @@ with hcol2:
                 bars = "plt.barh"
             #plot bars
             fig, bar = plt.subplots()
-            bar= bars(bxvars, byvars, height=3)
+            bar= plt.barh(bxvars, byvars, height=3)
             if bshowleg == 'Yes':
                 plt.legend(loc=barloc, shadow=blegshad, fontsize=blegsize)
             plt.xlabel(bxlab)
