@@ -244,7 +244,7 @@ with hcol2:
             
             
         # bar Plot
-        if type == 'Bar' and barvars !="":
+        if type == 'Bar' and bxvars !="" and byvars !="":
             #Set bay type
             if btype =="Horizontal":
                 bars = "plot.bar"
