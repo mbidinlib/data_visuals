@@ -253,7 +253,7 @@ with hcol2:
                 bars = "plt.barh"
             #plot bars
             #fig, bar = plt.subplots()
-            fig = plt.figure(figsize=(10, 4))
+            fig = plt.figure(figsize=(10, 8))
             bar= sns.barplot(data = dataset, x= bxvars, y= byvars)
             """
             if bshowleg == 'Yes':
