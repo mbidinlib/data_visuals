@@ -161,9 +161,15 @@ with hcol1:
         if type == 'Bar':
             # Main variables
             with  st.expander("Variable selection",expanded=False):
-                    barvars = st.multiselect("""Select the variables for the bar plot. 
+                    btype = st.selectbox("""Type of bars. 
+                                              """, ("Horizontal", "Vertical"))
+                    bxvars = st.selectbox("""Select X (data labels). 
                                               """, columns)
-            if  barvars  !="" :
+                    byvars = st.selectbox("""Select the y variable (data values). 
+                                              """, columns)
+
+
+            if  bxvars  !="" and bxvars != "" :
                 with  st.expander("Additional parameters",expanded=False):
                     bxlab = st.text_input("X label", "X-axis")
                     bylab = st.text_input("Y label", "Y-axis")
@@ -171,17 +177,19 @@ with hcol1:
                         ('best', 'upper right', 'upper left','lower left', 
                          'lower right', 'right', 'center left', 'center right',
                          'lower center', 'upper center','center'))    
-                    bshowleg = st.selectbox('Show legend', ("Yes", "No"))
+                    # Gridline options
+                    bshowgrid = st.selectbox('show gid bars', ('No', 'Yes'))
+                    if bshowgrid =='Yes':
+                        bgridcolor = st.color_picker('Grid color', '#0A8FBF', key="scolor")
+                        bgridaxis = st.selectbox('Grid axis', ('both','x', 'y'))
+                    # Bar legend for group bars
+                    bshowleg = st.selectbox('Show legend for groups', ("Yes", "No"))
                     if bshowleg == "Yes":
                         blegshad = st.selectbox('Legend Shadow', ("False", "True"))
                         blegsize = st.selectbox("Legend size", 
                                                ('xx-small', 'x-small', 'small', 'medium', 
                                                 'large', 'x-large', 'xx-large'),
                                                 )
-                    bshowgrid = st.selectbox('show gid bars', ('No', 'Yes'))
-                    if bshowgrid =='Yes':
-                        bgridcolor = st.color_picker('Grid color', '#0A8FBF', key="scolor")
-                        bgridaxis = st.selectbox('Grid axis', ('both','x', 'y'))
 
      
         
@@ -237,9 +245,14 @@ with hcol2:
             
         # bar Plot
         if type == 'Bar' and barvars !="":
+            #Set bay type
+            if btype =="Horizontal":
+                bars = "plot.bar"
+            elif btype == "Vertical":
+                bars = "plot.barh"
+            #plot bars
             fig, bar = plt.subplots()
-            for j in barvars:
-                bar= plt.bar(dataset[j], label=j, height=3)
+            bar= bars(bxvars, byvars, height=3)
             if bshowleg == 'Yes':
                 plt.legend(loc=barloc, shadow=blegshad, fontsize=blegsize)
             plt.xlabel(bxlab)
