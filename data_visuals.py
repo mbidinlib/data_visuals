@@ -174,8 +174,9 @@ with hcol1:
                     berrorb = st.selectbox('show error bars', ('No', 'Yes'))
                     if berrorb =='Yes':
                         berrorci = st.number_input('Confidence Interval of error', 5,99)
-                        #bgridaxis = st.selectbox('Grid axis', ('both','x', 'y'))
                     
+                    #bgridaxis = st.selectbox('Grid axis', ('both','x', 'y'))
+                
                     
                     
                     # Gridline options
@@ -185,13 +186,14 @@ with hcol1:
                     #    bgridcolor = st.color_picker('Grid color', '#0A8FBF', key="scolor")
                     #    bgridaxis = st.selectbox('Grid axis', ('both','x', 'y'))
                     # Bar legend for group bars
-                    bshowleg = st.selectbox('Show legend for groups', ("Yes", "No"))
+                    bshowleg = st.selectbox('Group/Show legend', ("Yes", "No"))
                     if bshowleg == "Yes":
-                        blegshad = st.selectbox('Legend Shadow', ("False", "True"))
-                        blegsize = st.selectbox("Legend size", 
-                                               ('xx-small', 'x-small', 'small', 'medium', 
-                                                'large', 'x-large', 'xx-large'),
-                                                )
+                        blegvar = st.selectbox('Group/Legend variable', columns)
+
+#                        blegsize = st.selectbox("Legend size", 
+#                                               ('xx-small', 'x-small', 'small', 'medium', 
+#                                                'large', 'x-large', 'xx-large'),
+#                                               )
 
      
         
@@ -250,11 +252,16 @@ with hcol2:
 
             if berrorb =='Yes':
                 bci = berrorci
-            else:
-                bci = None
+            else: bci = None
+                
+            if bshowleg == "Yes":
+                hueval = blegvar
+            else : hueval = bxvars
+                
+                
             fig = plt.figure(figsize=(10, 8))
             bar= sns.barplot(data = dataset, x= bxvars, y= byvars, 
-                             ci=bci)
+                             ci=bci, hue=hueval)
             bar.set(xlabel=bxlab, ylabel=bylab)
             """
             if bshowleg == 'Yes':
