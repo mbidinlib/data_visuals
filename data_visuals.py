@@ -240,7 +240,7 @@ with hcol2:
             fig, bar = plt.subplots()
             for j in barvars:
                 bar= plt.plot(dataset[j], label=j)
-            if lshowleg == 'Yes':
+            if bshowleg == 'Yes':
                 plt.legend(loc=barloc, shadow=blegshad, fontsize=blegsize)
             plt.xlabel(bxlab)
             plt.ylabel(bylab)
