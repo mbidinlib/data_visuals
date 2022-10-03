@@ -103,7 +103,7 @@ with hcol1:
         columns = dataset.columns
         type = st.selectbox(
             'Select visualization type',
-            ('Line','Scatter','Goespatial'))
+            ('Line', 'Bar','Scatter','Goespatial'))
 
         # Define Scatter inputs
         if type == 'Scatter':
@@ -131,7 +131,7 @@ with hcol1:
 
 
 
-        # Define Scatter inputs
+        # Define Line inputs
         if type == 'Line':
             # Main variables
             with  st.expander("Variable selection",expanded=False):
@@ -156,7 +156,32 @@ with hcol1:
                     if lshowgrid =='Yes':
                         lgridcolor = st.color_picker('Grid color', '#0A8FBF', key="scolor")
                         lgridaxis = st.selectbox('Grid axis', ('both','x', 'y'))
-                        
+
+        # Define bar inputs
+        if type == 'Bar':
+            # Main variables
+            with  st.expander("Variable selection",expanded=False):
+                    barvars = st.multiselect("""Select the variables for the bar plot. 
+                                              """, columns)
+            if  barvars  !="" :
+                with  st.expander("Additional parameters",expanded=False):
+                    bxlab = st.text_input("X label", "X-axis")
+                    bylab = st.text_input("Y label", "Y-axis")
+                    barloc = st.selectbox('Location of legend',
+                        ('best', 'upper right', 'upper left','lower left', 
+                         'lower right', 'right', 'center left', 'center right',
+                         'lower center', 'upper center','center'))    
+                    bshowleg = st.selectbox('Show legend', ("Yes", "No"))
+                    if bshowleg == "Yes":
+                        blegshad = st.selectbox('Legend Shadow', ("False", "True"))
+                        blegsize = st.selectbox("Legend size", 
+                                               ('xx-small', 'x-small', 'small', 'medium', 
+                                                'large', 'x-large', 'xx-large'),
+                                                )
+                    bshowgrid = st.selectbox('show gid bars', ('No', 'Yes'))
+                    if bshowgrid =='Yes':
+                        bgridcolor = st.color_picker('Grid color', '#0A8FBF', key="scolor")
+                        bgridaxis = st.selectbox('Grid axis', ('both','x', 'y'))
 
      
         
@@ -181,6 +206,8 @@ with hcol2:
         st.dataframe(dataset)
         
     if "dataset" in st.session_state and display == "Chart":   
+        
+        #############
         # Define plots
         ##############
         
@@ -192,7 +219,6 @@ with hcol2:
             plt.ylabel(sylab)
             if sshowgrid =='Yes':
                 plt.grid(color=sgridcolor, axis = sgridaxis)
-
             st.pyplot(fig)
 
         # Line Plot
@@ -206,8 +232,24 @@ with hcol2:
             plt.ylabel(lylab)
             if lshowgrid =='Yes':
                 plt.grid(color=lgridcolor, axis = lgridaxis)
+            st.pyplot(fig)
+            
+            
+        # bar Plot
+        if type == 'Bar' and barvars !="":
+            fig, bar = plt.subplots()
+            for j in barvars:
+                bar= plt.plot(dataset[j], label=j)
+            if lshowleg == 'Yes':
+                plt.legend(loc=barloc, shadow=blegshad, fontsize=blegsize)
+            plt.xlabel(bxlab)
+            plt.ylabel(bylab)
+            if bshowgrid =='Yes':
+                plt.grid(color=bgridcolor, axis = bgridaxis)
 
             st.pyplot(fig)
+            
+            
 
         #Geographic Plots
         if type == 'Goespatial' and lonvar !="" and latvar !="":
