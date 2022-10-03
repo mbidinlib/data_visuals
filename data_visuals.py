@@ -169,8 +169,8 @@ with hcol1:
 
             if  bxvars  !="" and bxvars != "" :
                 with  st.expander("Additional parameters",expanded=False):
-                    bxlab = st.text_input("X label", "X-axis")
-                    bylab = st.text_input("Y label", "Y-axis")
+                    bxlab = st.text_input("X label", bxvars)
+                    bylab = st.text_input("Y label", byvars)
                     berrorb = st.selectbox('show error bars', ('No', 'Yes'))
                     if berrorb =='Yes':
                         berrorci = st.number_input('Confidence Interval of error', 95)
@@ -251,6 +251,7 @@ with hcol2:
             #fig, bar = plt.subplots()
             fig = plt.figure(figsize=(10, 8))
             bar= sns.barplot(data = dataset, x= bxvars, y= byvars)
+            bar.set(xlabel=bxlab, ylabel=bylab)
             """
             if bshowleg == 'Yes':
                 plt.legend(loc=barloc, shadow=blegshad, fontsize=blegsize)
