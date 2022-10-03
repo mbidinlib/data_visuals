@@ -247,11 +247,6 @@ with hcol2:
             
         # bar Plot
         if type == 'Bar' and bxvars !="" and byvars !="":
-            #Set bay type
-            if btype =="Horizontal":
-                bars = "plt.bar"
-            elif btype == "Vertical":
-                bars = "plt.barh"
             #plot bars
             #fig, bar = plt.subplots()
             fig = plt.figure(figsize=(10, 8))
