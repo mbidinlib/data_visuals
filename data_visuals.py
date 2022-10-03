@@ -13,6 +13,7 @@ import streamlit as st
 from folium.features import DivIcon
 from branca.element import Figure
 from streamlit_folium import folium_static
+import seaborn as sns
 
 # Set page outline and footer
 st. set_page_config(layout="wide")
@@ -251,16 +252,17 @@ with hcol2:
             elif btype == "Vertical":
                 bars = "plt.barh"
             #plot bars
-            fig, bar = plt.subplots()
-            bar= plt.barh(bxvars, byvars)
+            #fig, bar = plt.subplots()
+            bar= sns.barplot(data = dataset, x= bxvars, y= byvars)
+            """
             if bshowleg == 'Yes':
                 plt.legend(loc=barloc, shadow=blegshad, fontsize=blegsize)
             plt.xlabel(bxlab)
             plt.ylabel(bylab)
             if bshowgrid =='Yes':
                 plt.grid(color=bgridcolor, axis = bgridaxis)
-
-            st.pyplot(fig)
+            """
+            st.pyplot(bar)
             
             
 
