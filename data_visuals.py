@@ -161,7 +161,7 @@ with hcol1:
         # Define bar inputs
         if type == 'Bar':
             # Main variables
-            with  st.expander("Variable selection For horizontal bars, the X should be the values",expanded=False):
+            with  st.expander("Variable selection. For horizontal bars, the X should be the values",expanded=False):
                     bxvars = st.selectbox("""Select X Variable 
                                               """, columns)
                     byvars = st.selectbox("""Select the y variable 
@@ -263,14 +263,14 @@ with hcol2:
             bar= sns.barplot(data = dataset, x= bxvars, y= byvars, 
                              ci=bci, hue=hueval)
             bar.set(xlabel=bxlab, ylabel=bylab)
-            """
-            if bshowleg == 'Yes':
-                plt.legend(loc=barloc, shadow=blegshad, fontsize=blegsize)
-            plt.xlabel(bxlab)
-            plt.ylabel(bylab)
-            if bshowgrid =='Yes':
-                plt.grid(color=bgridcolor, axis = bgridaxis)
-            """
+ 
+      #       if bshowleg == 'Yes':
+     #           plt.legend(loc=barloc, shadow=blegshad, fontsize=blegsize)
+    #        plt.xlabel(bxlab)
+   #         plt.ylabel(bylab)
+  #          if bshowgrid =='Yes':
+ #               plt.grid(color=bgridcolor, axis = bgridaxis)
+#
             st.pyplot(fig)
             
             
